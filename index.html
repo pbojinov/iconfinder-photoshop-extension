@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script src="./ext.js"></script>
+    <script src="./lib/CSInterface-4.0.0.js"></script>
+
+    <link id="ppstyle" rel="stylesheet" type="text/css" href="./style.css">
+    <title>IconFinder</title>
+</head>
+
+<body onLoad="onLoaded()">
+    <div id="content">
+        <ul>
+            <li>
+                <button class="default" id="btn_PHXS" onClick="onClickButton('PHXS')" disabled="true">Run ps code
+                </button>
+            </li>
+            <li>
+                <button onClick="window.__adobe_cep__.showDevTools()">Show DevTools</button>
+            </li>
+            <li>
+                <button id="new-doc">Create New document</button>
+            </li>
+        </ul>
+    </div>
+    <script src="scripts/lib/jquery/jquery.js"></script>
+    <script type="text/javascript">
+    var IconFinder = {};
+    IconFinder.App = (function() {
+
+        function init() {
+            $("#new-doc").on("click", function(e) {
+                docName = 'myDocument';
+                exec = 'documents.add(800, 500, 72, "' + docName + '")';
+                evalScript(exec);
+            });
+        }
+
+        return {
+            init: init
+        }
+    })();
+    IconFinder.App.init();
+    </script>
+</body>
+
+</html>
